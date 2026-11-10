@@ -1,0 +1,13 @@
+{
+  "name": "clinica-veterinaria",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/principal.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
