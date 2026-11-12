@@ -31,11 +31,11 @@ export abstract class Funcionario {
         return this.salario;
     }
 
-    // O salário não possui setter público: sua alteração exige validação.
     public alterarSalario(novoSalario: number): void {
-        if (!Number.isFinite(novoSalario) || novoSalario <= 0) {
-            throw new Error("O salário deve ser um valor válido e maior que zero.");
+        if (novoSalario > 0) {
+            this.salario = novoSalario;
+        } else {
+            console.log("Salário inválido.");
         }
-        this.salario = novoSalario;
     }
 }
