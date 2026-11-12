@@ -7,15 +7,9 @@ export class Consulta {
     private data: Date;
 
     constructor(animal: Animal, veterinario: Veterinario, data: Date) {
-        if (!animal || !veterinario) {
-            throw new Error("Uma consulta precisa de um animal e de um veterinário.");
-        }
-        if (!(data instanceof Date) || Number.isNaN(data.getTime())) {
-            throw new Error("A data da consulta é inválida.");
-        }
         this.animal = animal;
         this.veterinario = veterinario;
-        this.data = new Date(data);
+        this.data = data;
     }
 
     public getAnimal(): Animal {
@@ -23,7 +17,6 @@ export class Consulta {
     }
 
     public setAnimal(animal: Animal): void {
-        if (!animal) throw new Error("A consulta precisa de um animal.");
         this.animal = animal;
     }
 
@@ -32,18 +25,14 @@ export class Consulta {
     }
 
     public setVeterinario(veterinario: Veterinario): void {
-        if (!veterinario) throw new Error("A consulta precisa de um veterinário.");
         this.veterinario = veterinario;
     }
 
     public getData(): Date {
-        return new Date(this.data);
+        return this.data;
     }
 
     public setData(data: Date): void {
-        if (!(data instanceof Date) || Number.isNaN(data.getTime())) {
-            throw new Error("A data da consulta é inválida.");
-        }
-        this.data = new Date(data);
+        this.data = data;
     }
 }
