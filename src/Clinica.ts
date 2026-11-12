@@ -5,6 +5,22 @@ export class Clinica {
     private animais: Animal[] = [];
     private funcionarios: Funcionario[] = [];
 
+    public getAnimais(): Animal[] {
+        return [...this.animais];
+    }
+
+    public setAnimais(animais: Animal[]): void {
+        this.animais = [...animais];
+    }
+
+    public getFuncionarios(): Funcionario[] {
+        return [...this.funcionarios];
+    }
+
+    public setFuncionarios(funcionarios: Funcionario[]): void {
+        this.funcionarios = [...funcionarios];
+    }
+
     public adicionarAnimal(animal: Animal): void {
         this.animais.push(animal);
     }
@@ -14,11 +30,11 @@ export class Clinica {
     }
 
     public listarAnimais(): Animal[] {
-        return [...this.animais];
+        return this.getAnimais();
     }
 
     public listarFuncionarios(): Funcionario[] {
-        return [...this.funcionarios];
+        return this.getFuncionarios();
     }
 
     public removerAnimal(animal: Animal): void {
