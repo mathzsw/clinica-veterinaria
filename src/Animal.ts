@@ -25,7 +25,6 @@ export abstract class Animal {
     }
 
     public setIdade(idade: number): void {
-        if (idade < 0) throw new Error("A idade não pode ser negativa.");
         this.idade = idade;
     }
 
