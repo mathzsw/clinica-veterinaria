@@ -2,10 +2,10 @@ import { Animal } from "./Animal.js";
 
 export class Ave extends Animal {
     public emitirSom(): void {
-        console.log(`${this.getNome()} canta!`);
+        console.log("Piu piu!"); 
     }
 
     public cuidadosDiarios(): void {
-        console.log(`${this.getNome()} precisa de alimentação adequada, água e uma gaiola limpa e segura.`);
+        console.log("Precisa de gaiola.");
     }
 }
