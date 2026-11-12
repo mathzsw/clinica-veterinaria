@@ -6,9 +6,6 @@ export class Recepcionista extends Funcionario {
 
     constructor(nome: string, matricula: string, salario: number, valorBonusPorAgendamento: number) {
         super(nome, matricula, salario);
-        if (!Number.isFinite(valorBonusPorAgendamento) || valorBonusPorAgendamento < 0) {
-            throw new Error("O bônus por agendamento não pode ser negativo.");
-        }
         this.valorBonusPorAgendamento = valorBonusPorAgendamento;
     }
 
@@ -16,15 +13,20 @@ export class Recepcionista extends Funcionario {
         return this.agendamentosConfirmados;
     }
 
+    public setAgendamentosConfirmados(quantidade: number): void {
+        this.agendamentosConfirmados = quantidade;
+    }
+
     public getValorBonusPorAgendamento(): number {
         return this.valorBonusPorAgendamento;
     }
 
     public setValorBonusPorAgendamento(valor: number): void {
-        if (!Number.isFinite(valor) || valor < 0) {
-            throw new Error("O bônus por agendamento não pode ser negativo.");
-        }
         this.valorBonusPorAgendamento = valor;
+    }
+
+    public agendarConsulta(): void {
+        console.log("Consulta agendada.");
     }
 
     public confirmarAgendamento(): void {
@@ -33,9 +35,5 @@ export class Recepcionista extends Funcionario {
 
     public calcularBonusSalarial(): number {
         return this.agendamentosConfirmados * this.valorBonusPorAgendamento;
-    }
-
-    public agendarConsulta(): void {
-        console.log(`A recepcionista ${this.getNome()} agendou uma consulta.`);
     }
 }
