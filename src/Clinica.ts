@@ -6,19 +6,19 @@ export class Clinica {
     private funcionarios: Funcionario[] = [];
 
     public getAnimais(): Animal[] {
-        return [...this.animais];
+        return this.animais;
     }
 
     public setAnimais(animais: Animal[]): void {
-        this.animais = [...animais];
+        this.animais = animais;
     }
 
     public getFuncionarios(): Funcionario[] {
-        return [...this.funcionarios];
+        return this.funcionarios;
     }
 
     public setFuncionarios(funcionarios: Funcionario[]): void {
-        this.funcionarios = [...funcionarios];
+        this.funcionarios = funcionarios;
     }
 
     public adicionarAnimal(animal: Animal): void {
@@ -27,21 +27,5 @@ export class Clinica {
 
     public adicionarFuncionario(funcionario: Funcionario): void {
         this.funcionarios.push(funcionario);
-    }
-
-    public listarAnimais(): Animal[] {
-        return this.getAnimais();
-    }
-
-    public listarFuncionarios(): Funcionario[] {
-        return this.getFuncionarios();
-    }
-
-    public removerAnimal(animal: Animal): void {
-        this.animais = this.animais.filter(item => item !== animal);
-    }
-
-    public removerFuncionario(funcionario: Funcionario): void {
-        this.funcionarios = this.funcionarios.filter(item => item !== funcionario);
     }
 }
