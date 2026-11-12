@@ -6,9 +6,6 @@ export class Veterinario extends Funcionario {
 
     constructor(nome: string, matricula: string, salario: number, valorBonusPorConsulta: number) {
         super(nome, matricula, salario);
-        if (!Number.isFinite(valorBonusPorConsulta) || valorBonusPorConsulta < 0) {
-            throw new Error("O bônus por consulta não pode ser negativo.");
-        }
         this.valorBonusPorConsulta = valorBonusPorConsulta;
     }
 
@@ -16,27 +13,28 @@ export class Veterinario extends Funcionario {
         return this.consultasRealizadas;
     }
 
+    public setConsultasRealizadas(quantidade: number): void {
+        this.consultasRealizadas = quantidade;
+    }
+
     public getValorBonusPorConsulta(): number {
         return this.valorBonusPorConsulta;
     }
 
     public setValorBonusPorConsulta(valor: number): void {
-        if (!Number.isFinite(valor) || valor < 0) {
-            throw new Error("O bônus por consulta não pode ser negativo.");
-        }
         this.valorBonusPorConsulta = valor;
     }
 
-    public registrarConsulta(): void {
+    public realizarConsulta(): void {
         this.consultasRealizadas++;
+        console.log("Consulta realizada.");
+    }
+
+    public prescreverTratamento(tratamento: string): void {
+        console.log("Tratamento prescrito: " + tratamento);
     }
 
     public calcularBonusSalarial(): number {
         return this.consultasRealizadas * this.valorBonusPorConsulta;
-    }
-
-    public realizarConsulta(): void {
-        console.log(`Dr(a). ${this.getNome()} está realizando uma consulta.`);
-        this.registrarConsulta();
     }
 }
