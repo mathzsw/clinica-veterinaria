@@ -18,23 +18,30 @@ const recepcionista = new Recepcionista("Julia", "REC001", 1800, 5);
 clinica.adicionarAnimal(cachorro);
 clinica.adicionarAnimal(gato);
 clinica.adicionarAnimal(ave);
+
 clinica.adicionarFuncionario(veterinario);
 clinica.adicionarFuncionario(recepcionista);
 
 cachorro.emitirSom();
 cachorro.cuidadosDiarios();
+
 gato.emitirSom();
 gato.cuidadosDiarios();
+
 ave.emitirSom();
 ave.cuidadosDiarios();
 
 const consulta = new Consulta(cachorro, veterinario, new Date());
+
 veterinario.realizarConsulta();
+veterinario.prescreverTratamento("Repouso e medicação.");
+
 recepcionista.agendarConsulta();
 recepcionista.confirmarAgendamento();
 
-console.log("Consulta:", consulta.getData().toLocaleDateString());
+console.log("Data da consulta:", consulta.getData().toLocaleDateString());
 console.log("Bônus do veterinário:", veterinario.calcularBonusSalarial());
 console.log("Bônus da recepcionista:", recepcionista.calcularBonusSalarial());
-console.log("Animais cadastrados:", clinica.listarAnimais().length);
-console.log("Funcionários cadastrados:", clinica.listarFuncionarios().length);
+
+console.log("Animais cadastrados:", clinica.getAnimais().length);
+console.log("Funcionários cadastrados:", clinica.getFuncionarios().length);
